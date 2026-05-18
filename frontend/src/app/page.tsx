@@ -263,7 +263,7 @@ export default function Home() {
       </aside>
 
       {/* Main Area */}
-      <main className="flex-1 overflow-y-auto p-6">
+      <main className="flex-1 flex flex-col overflow-hidden p-6">
         {!activeTaskId && !taskDetail && (
           <div className="flex flex-col items-center justify-center h-full text-gray-400">
             <div className="text-6xl mb-4">📊</div>
@@ -300,9 +300,9 @@ export default function Home() {
 
         {/* Results */}
         {taskDetail && taskDetail.status === "completed" && taskResults && (
-          <div>
+          <>
             {/* Toolbar */}
-            <div className="flex items-center justify-between mb-6">
+            <div className="flex items-center justify-between mb-4 shrink-0">
               <div>
                 <h2 className="text-xl font-bold text-gray-800">分析结果</h2>
                 <p className="text-sm text-gray-400">任务 {taskDetail.task_id} · {taskDetail.created_at?.slice(0, 16)}</p>
@@ -317,7 +317,7 @@ export default function Home() {
 
             {/* Executive Summary */}
             {taskResults.report && (
-              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-6">
+              <div className="bg-white rounded-xl p-6 shadow-sm border border-gray-100 mb-4 shrink-0">
                 <h3 className="font-semibold text-gray-700 mb-3">执行摘要</h3>
                 <div className="text-sm text-gray-600 leading-relaxed whitespace-pre-wrap">
                   {taskResults.report.executive_summary}
@@ -325,12 +325,10 @@ export default function Home() {
               </div>
             )}
 
-            {/* Tabs */}
-            {taskResults && (
-              <TabsSection taskDetail={taskDetail} taskResults={taskResults}
-                activeTab={activeTab} setActiveTab={setActiveTab} />
-            )}
-          </div>
+            {/* Tabs - fills remaining space */}
+            <TabsSection taskDetail={taskDetail} taskResults={taskResults}
+              activeTab={activeTab} setActiveTab={setActiveTab} />
+          </>
         )}
       </main>
     </>
@@ -447,9 +445,9 @@ function TabsSection({ taskDetail, taskResults, activeTab, setActiveTab }: {
       ];
 
   return (
-    <div className="flex gap-0 h-full">
+    <div className="flex gap-0 flex-1 min-h-0">
       {/* Left tab nav */}
-      <div className="w-[170px] shrink-0 border-r border-gray-100 pr-0 bg-gray-50/50 rounded-l-xl">
+      <div className="w-[170px] shrink-0 border-r border-gray-100 bg-gray-50/50 rounded-l-xl overflow-y-auto">
         <div className="p-2">
           <div className="text-xs font-semibold text-gray-400 mb-1 px-2 py-1 uppercase tracking-wider">
             {isContent ? "内容分析" : "数据分析"}
