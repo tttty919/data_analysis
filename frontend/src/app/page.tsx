@@ -132,7 +132,7 @@ export default function Home() {
   };
 
   return (
-    <>
+    <div className="flex h-full">
       {/* Sidebar */}
       <aside className="w-[340px] bg-white border-r border-gray-200 flex flex-col h-full shrink-0">
         <div className="p-5 border-b border-gray-100">
@@ -331,7 +331,7 @@ export default function Home() {
           </>
         )}
       </main>
-    </>
+    </div>
   );
 }
 
