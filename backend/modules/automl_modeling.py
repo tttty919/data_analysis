@@ -13,13 +13,13 @@ warnings.filterwarnings("ignore")
 try:
     import xgboost as xgb
     HAS_XGB = True
-except ImportError:
+except Exception:
     HAS_XGB = False
 
 try:
     import lightgbm as lgb
     HAS_LGB = True
-except ImportError:
+except Exception:
     HAS_LGB = False
 
 

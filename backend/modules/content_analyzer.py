@@ -11,13 +11,13 @@ import numpy as np
 try:
     import jieba
     HAS_JIEBA = True
-except ImportError:
+except Exception:
     HAS_JIEBA = False
 
 try:
     from snownlp import SnowNLP
     HAS_SNOWNLP = True
-except ImportError:
+except Exception:
     HAS_SNOWNLP = False
 
 
