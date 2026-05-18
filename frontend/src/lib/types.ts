@@ -25,19 +25,34 @@ export interface Task {
 }
 
 export interface AnalysisResults {
-  eda: EDAResults;
-  basic_info: BasicInfo;
-  quality_analysis: QualityAnalysis;
-  statistical_analysis: Record<string, StatItem>;
-  correlation_analysis: CorrelationAnalysis;
-  outlier_analysis: Record<string, OutlierItem>;
-  visualizations: Record<string, string>;
+  [key: string]: any;
+  eda?: EDAResults;
+  basic_info?: BasicInfo;
+  quality_analysis?: QualityAnalysis;
+  statistical_analysis?: Record<string, StatItem>;
+  correlation_analysis?: CorrelationAnalysis;
+  outlier_analysis?: Record<string, OutlierItem>;
+  visualizations?: Record<string, string>;
   problem_type?: string;
   model_results?: Record<string, ModelResult>;
   best_model_name?: string;
   feature_importance?: Record<string, number>;
-  insights: Insight[];
-  report: Report;
+  insights?: Insight[];
+  report?: Report;
+  task_type?: string;
+  total_texts?: number;
+  text_column?: string;
+  content_analysis?: any;
+  keywords?: any[];
+  sentiment?: any;
+  themes?: any[];
+  nps?: any;
+  pain_points?: any[];
+  competitor_mentions?: any;
+  user_segments?: any[];
+  jtbd?: any[];
+  customer_journey?: any;
+  ai_insights?: any[];
 }
 
 export interface BasicInfo {
