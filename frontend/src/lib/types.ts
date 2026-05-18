@@ -1,4 +1,4 @@
-export type TaskType = "exploration" | "modeling" | "prediction";
+export type TaskType = "exploration" | "modeling" | "content_analysis" | "prediction";
 
 export interface TaskProgress {
   task_id: string;
